@@ -1,4 +1,4 @@
-require("maqnitude")
+require("maqnitude.config")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
