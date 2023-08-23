@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 -- NORMAL --
-vim.keymap.set("n", "<leader>n", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fe", vim.cmd.Ex) -- [f]ile [e]xplorer
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
