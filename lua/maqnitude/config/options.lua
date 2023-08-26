@@ -1,6 +1,19 @@
-vim.opt.guicursor = ""
+-- GENERAL --
+vim.opt.mouse = "a"
 
-vim.opt.clipboard:append { "unnamedplus" }
+vim.opt.clipboard = { "unnamed", "unnamedplus" }
+
+vim.opt.termguicolors = true
+
+vim.opt.timeout = false
+
+vim.opt.completeopt = { "menu", "menuone", "preview", "noselect" }
+
+-- EDITOR --
+vim.opt.guicursor = "a:block-nCursor"
+vim.opt.cursorcolumn = false
+vim.opt.cursorline = true
+vim.opt.scrolloff = 8
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -16,15 +29,8 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
-vim.opt.cursorcolumn = false
-vim.opt.cursorline = true
-vim.opt.scrolloff = 8
-
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.ignorecase =true
 vim.opt.smartcase = true
 
-vim.opt.termguicolors = true
-
-vim.opt.timeout = false
