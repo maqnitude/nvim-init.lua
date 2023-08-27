@@ -1,4 +1,4 @@
-require("maqnitude.config")
+require("config")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -14,4 +14,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("maqnitude.plugins")
+-- require("lazy").setup("plugins")
+require("plugins")

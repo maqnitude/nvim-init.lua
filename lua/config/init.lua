@@ -1,5 +1,5 @@
-require("maqnitude.config.options")
-require("maqnitude.config.keymaps")
+require("config.options")
+require("config.keymaps")
 
 -- Netrw settings
 vim.g.netrw_browse_split = 0
