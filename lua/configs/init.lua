@@ -1,5 +1,5 @@
-require("config.options")
-require("config.keymaps")
+require("configs.options")
+require("configs.keymaps")
 
 -- Netrw settings
 vim.g.netrw_browse_split = 0
