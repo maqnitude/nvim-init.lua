@@ -39,10 +39,10 @@ return {
         config = function()
             -- Diagnostic keymaps
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-            vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float)
-            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-            vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-            vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist)
+            vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = "Open floating [d]iagnostic [m]essage" })
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+            vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Open [d]iagnostic [l]ist" })
         end,
     },
 
@@ -50,14 +50,18 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            -- Snippet engine
-            { "L3MON4D3/LuaSnip" },
-
-            -- Sources for nvim-cmp & snippet engine
+            -- Sources for nvim-cmp
             {
-                "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",
             },
+            -- Snippet engine
+            {
+                "L3MON4D3/LuaSnip",
+                "saadparwaiz1/cmp_luasnip",
+            },
         },
+        config = function()
+            require("plugins.configs.cmp")
+        end
     },
 }
