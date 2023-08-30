@@ -12,7 +12,7 @@ return {
         end,
         config = function (_, opts)
             require("nvim-treesitter.configs").setup(opts)
-        end,
+        end
     },
 
     -- LSP
@@ -44,22 +44,31 @@ return {
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
             vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = "Open [d]iagnostic [l]ist" })
-        end,
+        end
     },
 
     -- Autopairs
     {
         "windwp/nvim-autopairs",
-        event = "InsertEnter",
+        event = { "InsertEnter" },
         config = function ()
             require("nvim-autopairs").setup()
+        end
+    },
+
+    -- Comment
+    {
+        "numToStr/Comment.nvim",
+        event = { "BufEnter", "BufNewFile", "BufReadPost" },
+        config = function ()
+            require("Comment").setup()
         end
     },
 
     -- Autocompletion
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
+        event = { "InsertEnter" },
         dependencies = {
             -- Sources for nvim-cmp
             {
