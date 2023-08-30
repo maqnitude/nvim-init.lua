@@ -47,6 +47,15 @@ return {
         end,
     },
 
+    -- Autopairs
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup()
+        end
+    },
+
     -- Autocompletion
     {
         "hrsh7th/nvim-cmp",
