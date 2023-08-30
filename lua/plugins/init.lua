@@ -59,7 +59,7 @@ return {
     -- Comment
     {
         "numToStr/Comment.nvim",
-        event = { "BufEnter", "BufNewFile", "BufReadPost" },
+        event = { "BufNewFile", "BufReadPost" },
         config = function ()
             require("Comment").setup()
         end
