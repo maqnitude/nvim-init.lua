@@ -1,5 +1,8 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local winhighlight = {
+  winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
 
 cmp.setup {
     snippet = {
@@ -8,8 +11,8 @@ cmp.setup {
         end,
     },
     window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(winhighlight),
+        documentation = cmp.config.window.bordered(winhighlight),
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-n>'] = cmp.mapping.select_next_item(),
