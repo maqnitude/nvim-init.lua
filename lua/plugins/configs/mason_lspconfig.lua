@@ -16,7 +16,7 @@ M.setup = {
 }
 
 M.handlers = {
-    function(server_name)
+    function (server_name)
         local lspconfig = require("plugins.configs.lspconfig")
         require("lspconfig")[server_name].setup {
             capabilities = lspconfig.capabilities,

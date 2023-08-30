@@ -21,23 +21,23 @@ return {
         dependencies = {
             {
                 "williamboman/mason.nvim",
-                config = function()
+                config = function ()
                     require("mason").setup()
                 end
             },
             {
                 "williamboman/mason-lspconfig.nvim",
-                opts = function()
+                opts = function ()
                     return require("plugins.configs.mason_lspconfig")
                 end,
-                config = function(_, opts)
+                config = function (_, opts)
                     local mason_lspconfig = require("mason-lspconfig")
                     mason_lspconfig.setup(opts.setup)
                     mason_lspconfig.setup_handlers(opts.handlers)
                 end
             },
         },
-        config = function()
+        config = function ()
             -- Diagnostic keymaps
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = "Open floating [d]iagnostic [m]essage" })
@@ -51,7 +51,7 @@ return {
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
+        config = function ()
             require("nvim-autopairs").setup()
         end
     },
@@ -71,7 +71,7 @@ return {
                 "saadparwaiz1/cmp_luasnip",
             },
         },
-        config = function()
+        config = function ()
             require("plugins.configs.cmp")
         end
     },

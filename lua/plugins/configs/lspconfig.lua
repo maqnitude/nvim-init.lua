@@ -1,6 +1,6 @@
 local M = {}
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function (_, bufnr)
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = bufnr }
@@ -19,12 +19,12 @@ M.on_attach = function(_, bufnr)
 
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wl', function()
+    vim.keymap.set('n', '<leader>wl', function ()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
 
     -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function (_)
         vim.lsp.buf.format()
     end)
 end
