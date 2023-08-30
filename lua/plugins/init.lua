@@ -6,6 +6,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        event = { "BufNewFile", "BufReadPost" },
         opts = function ()
             return require("plugins.configs.treesitter")
         end,
@@ -49,6 +50,7 @@ return {
     -- Autocompletion
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
             -- Sources for nvim-cmp
             {
