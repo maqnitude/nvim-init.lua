@@ -12,6 +12,9 @@ end
 -- NORMAL --
 set_keymap("n", "<leader>fe", vim.cmd.Ex, "[f]ile [e]xplorer")
 
+set_keymap("n", "<leader>sv", vim.cmd.vsplit, "[s]plit [v]ertically")
+set_keymap("n", "<leader>sh", vim.cmd.split, "[s]plit [h]orizontally")
+
 set_keymap("n", "<C-h>", "<C-w>h")
 set_keymap("n", "<C-j>", "<C-w>j")
 set_keymap("n", "<C-k>", "<C-w>k")
@@ -19,7 +22,7 @@ set_keymap("n", "<C-l>", "<C-w>l")
 
 set_keymap("n", "<leader><leader>", function()
 	vim.cmd("so")
-end)
+end, "Source")
 
 -- INSERT --
 set_keymap("i", "<C-h>", "<Left>")
@@ -28,5 +31,5 @@ set_keymap("i", "<C-k>", "<Up>")
 set_keymap("i", "<C-l>", "<Right>")
 
 -- VISUAL --
-set_keymap("v", ">", ">gv")
-set_keymap("v", "<", "<gv")
+set_keymap("v", ">", ">gv", "Consecutive tab shift right")
+set_keymap("v", "<", "<gv", "Consecutive tab shift left")
