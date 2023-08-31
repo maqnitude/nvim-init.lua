@@ -1,35 +1,29 @@
-local M = {}
+-- Border on floating windows
+local border = "single"
 
-M.on_attach = function (_, bufnr)
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = bufnr }
+require('lspconfig.ui.windows').default_options.border = border
 
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+        border = border
+    }
+)
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signatureHelp, {
+        border = border
+    }
+)
+vim.diagnostic.config({
+    float = { border = border }
+})
 
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
-
-    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wl', function ()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function (_)
-        vim.lsp.buf.format()
-    end)
-end
-
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
-
-return M
+-- Diagnostic keymaps
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float,
+    { desc = "Open floating [d]iagnostic [m]essage" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,
+    { desc = "Go to previous diagnostic message" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next,
+    { desc = "Go to next diagnostic message" })
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist,
+    { desc = "Open [d]iagnostic [l]ist" })
