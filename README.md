@@ -21,6 +21,8 @@ For tracking & managing neovim configurations.
 
 - Commenting (with `gcc`, `gbc`, etc.): [`Comment.nvim`](https://github.com/numToStr/Comment.nvim).
 
+- Fuzzy finder: [`telescope.nvim`](https://github.com/nvim-telescope/telescope.nvim).
+
 - Others:
   - Colorscheme: [`vim-moonfly-colors`](https://github.com/bluz71/vim-moonfly-colors).
   - Statusline: [`lualine.nvim`](https://github.com/nvim-lualine/lualine.nvim).
