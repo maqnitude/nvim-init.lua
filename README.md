@@ -1,5 +1,5 @@
 # ~/.config/nvim
-For tracking & managing neovim configurations.
+For tracking & managing my Neovim configurations.
 
 ### Plugins
 - Plugin manager: [`lazy.nvim`](https://github.com/folke/lazy.nvim).
