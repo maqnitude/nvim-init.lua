@@ -1,7 +1,9 @@
 return {
     ensure_installed = {
-        "c",
         "lua",
+        "c",
+        "cpp",
+        "python",
     },
     sync_install = false,
     highlight = { enable = true },
