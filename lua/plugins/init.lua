@@ -5,6 +5,9 @@ return {
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
+        cond = function ()
+            return not vim.g.vscode
+        end,
         build = ":TSUpdate",
         event = { "BufNewFile", "BufReadPost" },
         opts = function ()
@@ -99,9 +102,13 @@ return {
     -- Statusline
     {
         "nvim-lualine/lualine.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
         config = function ()
             require("lualine").setup({
                 options = {
+                    icons_enabled = true,
                     theme = "auto",
                 }
             })
@@ -116,18 +123,8 @@ return {
         priority = 1000,
         config = function ()
             vim.cmd.colorscheme("moonfly")
+            vim.cmd.highlight({"Comment", "cterm=NONE", "gui=NONE"})
             vim.g.moonflyNormalFloat = true
         end
     }
-    -- {
-    --     "Lokaltog/vim-monotone",
-    --     config = function ()
-    --         vim.cmd([[
-    --             let g:monotone_secondary_hue_offset = 175
-    --             let g:monotone_emphasize_comments = 1
-    --         ]])
-    --         vim.cmd.colorscheme("monotone")
-    --         vim.cmd.highlight("MatchParen", "gui=reverse")
-    --     end
-    -- }
 }
