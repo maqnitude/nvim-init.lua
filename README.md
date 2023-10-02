@@ -1,5 +1,21 @@
 # ~/.config/nvim
-For tracking & managing neovim configurations.
+For tracking & managing my Neovim configuration.
+
+I want to keep it simple and easy to understand. Still improving it.
+
+### Try it out
+You can try it out, change and modify whatever you like. 
+- On Linux:
+  ```shell
+  cd ~/.config
+  git clone https://github.com/maqnitude/nvim-init.lua.git nvim
+  ```
+- On Windows:
+  ```shell
+  cd $env:LOCALAPPDATA
+  git clone https://github.com/maqnitude/nvim-init.lua.git nvim
+  ```
+Remember to get rid of `nvim` (and also `nvim-data` on Windows, `~/.local/share/nvim` on Linux) or back it up.
 
 ### Plugins
 - Plugin manager: [`lazy.nvim`](https://github.com/folke/lazy.nvim).
