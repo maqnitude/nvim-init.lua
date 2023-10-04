@@ -8,6 +8,10 @@ local servers = {
         }
     },
     pyright = {},
+    html = {},
+    cssls = {},
+    jsonls = {},
+    tsserver = {}, -- supports both js and ts
 }
 
 local M = {}
