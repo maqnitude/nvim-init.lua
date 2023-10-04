@@ -7,6 +7,7 @@ local servers = {
             }
         }
     },
+    pyright = {},
 }
 
 local M = {}
