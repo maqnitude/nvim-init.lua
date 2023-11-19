@@ -9,10 +9,13 @@ local servers = {
     },
     clangd = {},
     pyright = {},
+    tsserver = {}, -- supports both js and ts
     html = {},
     cssls = {},
+
+    cmake = {},
     jsonls = {},
-    tsserver = {}, -- supports both js and ts
+    yamlls = {},
 }
 
 local M = {}
