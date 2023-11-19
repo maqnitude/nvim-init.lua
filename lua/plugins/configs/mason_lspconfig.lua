@@ -7,6 +7,7 @@ local servers = {
             }
         }
     },
+    clangd = {},
     pyright = {},
     html = {},
     cssls = {},
