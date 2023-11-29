@@ -21,8 +21,25 @@ set_keymap("n", "<C-k>", "<C-w>k")
 set_keymap("n", "<C-l>", "<C-w>l")
 
 set_keymap("n", "<leader><leader>", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end, "Source")
+
+-- Swtich between tab size 2 and 4
+set_keymap("n", "<leader><Tab>2", function()
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+
+    print("tabstop/softtabstop/shiftwidth set to 2")
+end, "Change tab size to 2")
+
+set_keymap("n", "<leader><Tab>4", function()
+    vim.opt.tabstop = 4
+    vim.opt.softtabstop = 4
+    vim.opt.shiftwidth = 4
+
+    print("tabstop/softtabstop/shiftwidth set to 4")
+end, "Change tab size to 4")
 
 -- INSERT --
 set_keymap("i", "<C-h>", "<Left>")
