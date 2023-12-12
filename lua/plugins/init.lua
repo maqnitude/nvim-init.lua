@@ -1,6 +1,10 @@
 return {
-    -- Git related
+    -- Git/Github related
     { "tpope/vim-fugitive" },
+    {
+        "github/copilot.vim",
+        event = { "BufNewFile", "BufReadPost" },
+    },
 
     -- Treesitter
     {
@@ -117,14 +121,30 @@ return {
 
     -- Colorscheme
     {
-        "bluz71/vim-moonfly-colors",
-        name = "moonfly",
+        "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
+        opts = {},
         config = function ()
-            vim.cmd.colorscheme("moonfly")
-            vim.cmd.highlight({"Comment", "cterm=NONE", "gui=NONE"})
-            vim.g.moonflyNormalFloat = true
+            require("tokyonight").setup({
+                style = "night",
+                styles = {
+                    comments = { italic = false },
+                },
+            })
+
+            vim.cmd [[ colorscheme tokyonight ]]
         end
-    }
+    },
+
+    -- {
+    --     "bluz71/vim-moonfly-colors",
+    --     name = "moonfly",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function ()
+    --         vim.cmd.colorscheme("moonfly")
+    --         vim.cmd.highlight({"Comment", "cterm=NONE", "gui=NONE"})
+    --     end
+    -- }
 }
