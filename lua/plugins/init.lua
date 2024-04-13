@@ -1,10 +1,10 @@
 return {
     -- Git/Github related
     { "tpope/vim-fugitive" },
-    {
-        "github/copilot.vim",
-        event = { "BufNewFile", "BufReadPost" },
-    },
+    -- {
+    --     "github/copilot.vim",
+    --     event = { "BufNewFile", "BufReadPost" },
+    -- },
 
     -- Treesitter
     {
@@ -71,6 +71,16 @@ return {
         end
     },
 
+    -- Indent guides
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+        config = function ()
+            require("ibl").setup()
+        end
+    },
+
     -- Autocompletion
     {
         "hrsh7th/nvim-cmp",
@@ -134,6 +144,10 @@ return {
             })
 
             vim.cmd [[ colorscheme tokyonight ]]
+
+            -- Transparent background
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end
     },
 
