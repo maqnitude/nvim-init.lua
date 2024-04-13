@@ -34,11 +34,11 @@ set_keymap("n", "<leader><Tab>2", function()
 end, "Change tab size to 2")
 
 set_keymap("n", "<leader><Tab>4", function()
-    vim.opt.tabstop = 4
-    vim.opt.softtabstop = 4
-    vim.opt.shiftwidth = 4
+  vim.opt.tabstop = 4
+  vim.opt.softtabstop = 4
+  vim.opt.shiftwidth = 4
 
-    print("tabstop/softtabstop/shiftwidth set to 4")
+  print("tabstop/softtabstop/shiftwidth set to 4")
 end, "Change tab size to 4")
 
 -- INSERT --
@@ -50,3 +50,6 @@ set_keymap("i", "<C-l>", "<Right>")
 -- VISUAL --
 set_keymap("v", ">", ">gv", "Consecutive tab shift right")
 set_keymap("v", "<", "<gv", "Consecutive tab shift left")
+
+set_keymap("v", "<M-j>", ":m '>+1<CR>gv=gv", "Move line(s) down")
+set_keymap("v", "<M-k>", ":m '<-2<CR>gv=gv", "Move line(s) up")
