@@ -1,11 +1,14 @@
 return {
     ensure_installed = {
-        -- for nvim config
+        -- core
+        "c",
         "lua",
+        "vim",
+        "vimdoc",
 
         -- standards
-        "c",
         "cpp",
+        "c_sharp",
         "python",
 
         -- web & others
