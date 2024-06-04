@@ -45,8 +45,17 @@ for filetype, settings in pairs(filetype_settings) do
     vim.cmd(string.format("autocmd FileType %s setlocal tabstop=%s softtabstop=%s shiftwidth=%s",
                           filetype, settings.tabstop, settings.softtabstop, settings.shiftwidth))
 end
---
 
+-- Highlight trailing whitespace in red
+function highlight_trailing_whitespace()
+    vim.cmd([[match ExtraWhitespace /\s\+$/]])
+    vim.cmd([[highlight ExtraWhitespace guifg=#ff0000 guibg=#ff0000]])
+end
+
+vim.cmd([[autocmd CursorMoved,CursorMovedI * lua highlight_trailing_whitespace()]])
+vim.cmd([[autocmd BufLeave * lua vim.cmd('match none')]])
+
+-- Other
 vim.opt.smartindent = true
 vim.opt.wrap = false
 
