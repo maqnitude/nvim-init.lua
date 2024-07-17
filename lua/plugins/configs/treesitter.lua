@@ -17,6 +17,7 @@ return {
         "json",
         "javascript",
         "typescript",
+        "tsx", -- for React JSX/TSX
     },
     sync_install = false,
     highlight = { enable = true },
