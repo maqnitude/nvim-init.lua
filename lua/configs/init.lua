@@ -6,8 +6,11 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 
 -- Colorscheme & Highlighting
--- vim.cmd.colorscheme("habamax")
--- vim.cmd.highlight("MatchParen", "gui=bold")
+-- ['blue', 'darkblue', 'default', 'delek', 'desert', 'elflord', 'evening',
+-- 'habamax', 'industry', 'koehler', 'lunaperche', 'morning', 'murphy',
+-- 'pablo', 'peachpuff', 'quiet', 'retrobox', 'ron', 'shine', 'slate',
+-- 'sorbet', 'torte', 'vim', 'wildcharm', 'zaibatsu', 'zellner']
+vim.cmd [[ colorscheme default ]]
 
 -- Transparent background
 local groups = { "Normal", "NormalFloat", "NormalNC", "VertSplit" }

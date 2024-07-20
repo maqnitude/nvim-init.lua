@@ -115,9 +115,21 @@ return {
     -- Autopairs
     {
         "windwp/nvim-autopairs",
-        event = { "InsertEnter" },
+        event = { "BufNewFile", "BufReadPost" },
         config = function ()
             require("nvim-autopairs").setup()
+        end,
+        cond = function ()
+            return not vim.g.vscode
+        end
+    },
+
+    -- Auto tag
+    {
+        "windwp/nvim-ts-autotag",
+        event = { "BufNewFile", "BufReadPost" },
+        config = function ()
+            require("nvim-ts-autotag").setup()
         end,
         cond = function ()
             return not vim.g.vscode
