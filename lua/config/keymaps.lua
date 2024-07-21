@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 local set_keymap = function(mode, lhs, rhs, desc)
     local opts = {
