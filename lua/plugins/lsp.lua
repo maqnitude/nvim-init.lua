@@ -1,18 +1,40 @@
+local is_windows = vim.loop.os_uname().version:match("Windows")
+local omnisharp_cmd = {}
+
+if is_windows then
+    local omnisharp_bin = "D:\\libs\\language-servers\\omnisharp-win-x64\\OmniSharp.exe"
+    omnisharp_cmd = {
+        omnisharp_bin,
+        "sdk:path=\"C:\\Program Files\\dotnet\\sdk\\8.0.400\"",
+        "sdk:version=\"8.0.400\""
+    }
+else
+    omnisharp_cmd = {}
+end
+
 local servers = {
     lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            diagnostics = {
-                globals = { "vim" }
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false },
+                diagnostics = {
+                    globals = { "vim" }
+                }
             }
         }
     },
+
     clangd = {},
     pyright = {},
+
     tsserver = {}, -- supports both js and ts
+    eslint = {},
     html = {},
     cssls = {},
-    omnisharp = {},
+
+    omnisharp = {
+        cmd = omnisharp_cmd
+    },
 
     -- cmake = {},
     jsonls = {},
@@ -58,12 +80,21 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(
 
 local handlers = {
     function (server_name)
-        require("lspconfig")[server_name].setup {
+        local server_config = {
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = servers[server_name],
+            settings = (servers[server_name] or {}).settings,
             filetypes = (servers[server_name] or {}).filetypes,
         }
+
+        -- Server-specific configurations
+        if servers[server_name] then
+            for k, v in pairs(servers[server_name]) do
+                server_config[k] = v
+            end
+        end
+
+        require("lspconfig")[server_name].setup(server_config)
     end
 }
 
@@ -101,7 +132,7 @@ return {
 
     {
         "neovim/nvim-lspconfig",
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim"
