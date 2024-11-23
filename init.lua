@@ -1,5 +1,9 @@
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
+-- Disable netrw to use nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- vim.g.netrw_browse_split = 0
+-- vim.g.netrw_banner = 0
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -36,7 +40,10 @@ if not vim.g.vscode then
 end
 
 -- Transparent background
--- local groups = { "Normal", "NormalFloat", "NormalNC", "VertSplit" }
+-- local groups = {
+--     "Normal", "NormalFloat", "NormalNC", "VertSplit",
+--     "NvimTreeNormal", "NvimTreeNormalNC", "NvimTreeEndOfBuffer"
+-- }
 -- for _, group in ipairs(groups) do
 --     vim.api.nvim_set_hl(0, group, { bg = "none" })
 -- end
