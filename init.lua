@@ -22,19 +22,21 @@ require("config.keymaps")
 require("config.options")
 
 -- Setup lazy.nvim
-require("lazy").setup({
-    spec = {
-        { import = "plugins" }
-    },
-    install = { colorscheme = { "habamax"} },
-    ui = {
-        border = "single"
-    },
-    -- checker = { enabled = true },
-})
+if not vim.g.vscode then
+    require("lazy").setup({
+        spec = {
+            { import = "plugins" }
+        },
+        install = { colorscheme = { "habamax"} },
+        ui = {
+            border = "single"
+        },
+        -- checker = { enabled = true },
+    })
+end
 
 -- Transparent background
-local groups = { "Normal", "NormalFloat", "NormalNC", "VertSplit" }
-for _, group in ipairs(groups) do
-    vim.api.nvim_set_hl(0, group, { bg = "none" })
-end
+-- local groups = { "Normal", "NormalFloat", "NormalNC", "VertSplit" }
+-- for _, group in ipairs(groups) do
+--     vim.api.nvim_set_hl(0, group, { bg = "none" })
+-- end
