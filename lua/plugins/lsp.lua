@@ -1,19 +1,6 @@
 local is_windows = vim.loop.os_uname().version:match("Windows")
 local omnisharp_cmd = {}
 
-if is_windows then
-    local omnisharp_bin = "D:\\libs\\language-servers\\omnisharp-win-x64\\OmniSharp.exe"
-    omnisharp_cmd = {
-        omnisharp_bin,
-        "--languageserver",
-        "--hostPID", tostring(vim.fn.getpid()),
-        "sdk:path=\"C:\\Program Files\\dotnet\\sdk\\8.0.400\"",
-        "sdk:version=\"8.0.400\""
-    }
-else
-    omnisharp_cmd = {}
-end
-
 local servers = {
     lua_ls = {
         settings = {
@@ -35,7 +22,11 @@ local servers = {
     cssls = {},
 
     omnisharp = {
-        cmd = omnisharp_cmd
+        cmd = {
+            "dotnet",
+            vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
+        },
+        root_dir = vim.uv.cwd()
     },
 
     -- cmake = {},
