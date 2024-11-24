@@ -28,7 +28,7 @@ set_keymap("n", "<C-l>", "<C-w>l")
 set_keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- INSERT --
-set_keymap("i", "<Ch-h>", "<Left>")
+set_keymap("i", "<C-h>", "<Left>")
 set_keymap("i", "<C-j>", "<Down>")
 set_keymap("i", "<C-k>", "<Up>")
 set_keymap("i", "<C-l>", "<Right>")
