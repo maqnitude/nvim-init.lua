@@ -58,16 +58,7 @@ return {
                             on_attach = function(_, bufnr)
                                 -- Buffer local mappings.
                                 -- See `:help vim.lsp.*` for documentation on any of the below functions
-                                local set_keymap = function(mode, lhs, rhs, desc)
-                                    local opts = {
-                                        noremap = true,
-                                        silent = true,
-                                        buffer = bufnr,
-                                        desc = desc
-                                    }
-                                    vim.keymap.set(mode, lhs, rhs, opts)
-                                end
-
+                                local set_keymap = require("utils").set_keymap
 
                                 set_keymap('n', '<leader>rn', vim.lsp.buf.rename, "")
                                 set_keymap({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, "")

@@ -1,14 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local set_keymap = function(mode, lhs, rhs, desc)
-    local opts = {
-        noremap = true,
-        silent = true,
-        desc = desc
-    }
-    vim.keymap.set(mode, lhs, rhs, opts)
-end
+local set_keymap = require("utils").set_keymap
 
 -- NORMAL --
 set_keymap("n", "<leader>fe", vim.cmd.Ex, "[f]ile [e]xplorer")
@@ -37,5 +30,5 @@ set_keymap("i", "<C-l>", "<Right>")
 set_keymap("v", ">", ">gv", "Consecutive tab shift right")
 set_keymap("v", "<", "<gv", "Consecutive tab shift left")
 
-set_keymap("v", "<M-j>", ":m '>+1<CR>gv=gv", "Move line(s) down")
-set_keymap("v", "<M-k>", ":m '<-2<CR>gv=gv", "Move line(s) up")
+set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", "Move line(s) down")
+set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", "Move line(s) up")

@@ -9,14 +9,7 @@ return {
         config = function ()
             local builtin = require("telescope.builtin")
 
-            local set_keymap = function(mode, lhs, rhs, desc)
-                local opts = {
-                    noremap = true,
-                    silent = true,
-                    desc = desc
-                }
-                vim.keymap.set(mode, lhs, rhs, opts)
-            end
+            local set_keymap = require("utils").set_keymap
 
             set_keymap("n", "<leader>ff", builtin.find_files, "[f]ind [f]files")
             set_keymap("n", "<leader>fg", builtin.live_grep, "[f]ind [g]rep")

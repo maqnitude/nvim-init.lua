@@ -1,14 +1,6 @@
 local function custom_keymaps(bufnr)
     local api = require "nvim-tree.api"
-
-    local set_keymap = function(mode, lhs, rhs, desc)
-        local opts = {
-            noremap = true,
-            silent = true,
-            desc = desc
-        }
-        vim.keymap.set(mode, lhs, rhs, opts)
-    end
+    local set_keymap = require("utils").set_keymap
 
     -- default mappings
     api.config.mappings.default_on_attach(bufnr)
