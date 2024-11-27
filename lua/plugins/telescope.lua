@@ -1,20 +1,32 @@
 return {
     {
         "nvim-telescope/telescope.nvim", tag = "0.1.8",
-        event = "VeryLazy",
+        lazy = true,
+        event = { "VeryLazy" },
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
         config = function ()
-            require("telescope").setup()
-
             local builtin = require("telescope.builtin")
 
-            vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-            vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+            local set_keymap = function(mode, lhs, rhs, desc)
+                local opts = {
+                    noremap = true,
+                    silent = true,
+                    desc = desc
+                }
+                vim.keymap.set(mode, lhs, rhs, opts)
+            end
 
+            set_keymap("n", "<leader>ff", builtin.find_files, "[f]ind [f]files")
+            set_keymap("n", "<leader>fg", builtin.live_grep, "[f]ind [g]rep")
+            set_keymap("n", "<leader>fb", builtin.buffers, "[f]ind [b]uffers")
+            set_keymap("n", "<leader>fh", builtin.help_tags, "[f]ind [h]elp tags")
         end
+    },
+
+    {
+        "nvim-lua/plenary.nvim",
+        lazy = true
     }
 }

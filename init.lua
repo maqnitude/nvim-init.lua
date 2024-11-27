@@ -26,18 +26,14 @@ require("config.keymaps")
 require("config.options")
 
 -- Setup lazy.nvim
-if not vim.g.vscode then
-    require("lazy").setup({
-        spec = {
-            { import = "plugins" }
-        },
-        install = { colorscheme = { "habamax"} },
-        ui = {
-            border = "single"
-        },
-        -- checker = { enabled = true },
-    })
-end
+require("lazy").setup({
+    spec = {
+        { import = "plugins" }
+    },
+    ui = {
+        border = "single"
+    },
+})
 
 -- Transparent background
 -- local groups = {

@@ -1,7 +1,8 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        event = { "InsertEnter" },
+        lazy = true,
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             -- Sources for nvim-cmp
             "hrsh7th/cmp-nvim-lsp",
@@ -17,7 +18,7 @@ return {
                 winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
             }
 
-            cmp.setup({
+            cmp.setup {
                 snippet = {
                     expand = function (args)
                         luasnip.lsp_expand(args.body)
@@ -59,8 +60,23 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                }),
-            })
+                })
+            }
         end
+    },
+
+    {
+        "hrsh7th/cmp-nvim-lsp",
+        lazy = true
+    },
+
+    {
+        "L3MON4D3/LuaSnip",
+        lazy = true
+    },
+
+    {
+        "saadparwaiz1/cmp_luasnip",
+        lazy = true
     }
 }

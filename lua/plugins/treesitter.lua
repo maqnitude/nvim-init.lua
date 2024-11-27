@@ -1,8 +1,9 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = true,
+        event = { "BufReadPre", "BufNewFile" },
         build = ":TSUpdate",
-        event = "VeryLazy",
         opts = {
             ensure_installed = {
                 -- core
@@ -27,9 +28,6 @@ return {
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
-        },
-        config = function (_, opts)
-            require("nvim-treesitter.configs").setup(opts)
-        end,
+        }
     }
 }

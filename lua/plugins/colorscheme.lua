@@ -21,12 +21,16 @@ return {
 
         "navarasu/onedark.nvim",
         lazy = false,
-        priority = 100,
+        priority = 1000,
         config = function()
-            require("onedark").setup({
-                style = "darker"
-            })
-            vim.cmd([[colorscheme onedark]])
+            require("onedark").setup {
+                style = "darker",
+                transparent = true,
+                code_style = {
+                    comments = "none"
+                }
+            }
+            require("onedark").load()
         end
     }
 }

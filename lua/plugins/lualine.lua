@@ -1,17 +1,16 @@
 return {
     {
         "nvim-lualine/lualine.nvim",
-        event = { "BufNewFile", "BufReadPost" },
+        lazy = true,
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons"
         },
-        config = function ()
-            require("lualine").setup({
-                options = {
-                    icons_enabled = true,
-                    theme = "auto",
-                }
-            })
-        end
+        event = { "VeryLazy" },
+        opts = {
+            options = {
+                icons_enabled = true,
+                theme = "auto",
+            }
+        }
     }
 }

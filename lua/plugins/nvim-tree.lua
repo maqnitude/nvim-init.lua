@@ -23,12 +23,15 @@ return {
         version = "*",
         lazy = false,
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons"
         },
-        config = function()
-            require("nvim-tree").setup {
-                on_attach = custom_keymaps
-            }
-        end,
+        opts = {
+            on_attach = custom_keymaps
+        }
+    },
+
+    {
+        "nvim-tree/nvim-web-devicons",
+        lazy = true
     }
 }
