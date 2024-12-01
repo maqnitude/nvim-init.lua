@@ -1,4 +1,4 @@
-local function custom_keymaps(bufnr)
+local function on_attach(bufnr)
     local api = require "nvim-tree.api"
     local set_keymap = require("utils").set_keymap
 
@@ -12,13 +12,13 @@ end
 return {
     {
         "nvim-tree/nvim-tree.lua",
-        version = "*",
         lazy = false,
+        version = "*",
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
         opts = {
-            on_attach = custom_keymaps
+            on_attach = on_attach
         }
     },
 

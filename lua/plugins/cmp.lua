@@ -1,7 +1,6 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        lazy = true,
         event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             -- Sources for nvim-cmp
