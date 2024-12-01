@@ -28,11 +28,13 @@ require("config.options")
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        { import = "plugins" }
+        { import = "plugins.editor" },
+        { import = "plugins.lsp" }
     },
     ui = {
         border = "single"
     },
+    checker = { enabled = true }
 })
 
 -- Transparent background
