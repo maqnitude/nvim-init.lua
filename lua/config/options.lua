@@ -47,7 +47,7 @@ vim.opt.inccommand = "split"
 
 -- Tabs
 local filetype_tab_settings = {
-    ['md'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ['markdown'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
     ['html'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ['htmldjango'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
