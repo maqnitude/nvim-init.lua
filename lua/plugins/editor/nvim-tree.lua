@@ -2,11 +2,11 @@ local function on_attach(bufnr)
     local api = require "nvim-tree.api"
     local set_keymap = require("utils").set_keymap
 
-    -- default mappings
+    -- Default mappings
     api.config.mappings.default_on_attach(bufnr)
 
-    -- custom mappings
-    set_keymap("n", "<leader>fe", api.tree.toggle, "[f]ile [e]xplorer")
+    -- Custom mappings
+    set_keymap("n", "<leader>fe", api.tree.toggle, { desc = "[f]ile [e]xplorer" })
 end
 
 return {
@@ -18,7 +18,12 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
         opts = {
-            on_attach = on_attach
+            on_attach = on_attach,
+            actions = {
+                open_file = {
+                    quit_on_open = true
+                }
+            }
         }
     },
 
