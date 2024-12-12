@@ -19,18 +19,46 @@ return {
         --   vim.cmd([[colorscheme aura-dark]])
         -- end
 
-        "navarasu/onedark.nvim",
+        -- "navarasu/onedark.nvim",
+        -- lazy = false,
+        -- priority = 1000,
+        -- config = function()
+        --     require("onedark").setup {
+        --         style = "darker",
+        --         transparent = true,
+        --         code_style = {
+        --             comments = "none"
+        --         }
+        --     }
+        --     require("onedark").load()
+        -- end
+
+        -- "rebelot/kanagawa.nvim",
+        -- lazy = false,
+        -- priority = 1000,
+        -- config = function()
+        --     require("kanagawa").setup({
+        --         transparent = true,
+        --         commentStyle = { italic = false },
+        --         keywordStyle = { italic = false },
+        --         theme = "wave",
+        --         background = {
+        --             dark = "dragon",
+        --             light = "lotus"
+        --         }
+        --     })
+        --     vim.cmd.colorscheme("kanagawa")
+        -- end
+
+        "Mofiqul/vscode.nvim",
         lazy = false,
         priority = 1000,
-        config = function()
-            require("onedark").setup {
-                style = "darker",
-                transparent = true,
-                code_style = {
-                    comments = "none"
-                }
-            }
-            require("onedark").load()
+        config = function ()
+            require("vscode").setup({
+                transparent= true,
+                italic_comments = false
+            })
+            vim.cmd.colorscheme("vscode");
         end
     }
 }
