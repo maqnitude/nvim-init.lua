@@ -71,3 +71,15 @@ for filetype, settings in pairs(filetype_tab_settings) do
     vim.cmd(string.format("autocmd FileType %s setlocal tabstop=%s softtabstop=%s shiftwidth=%s",
         filetype, settings.tabstop, settings.softtabstop, settings.shiftwidth))
 end
+
+-- Default colorscheme
+vim.cmd.colorscheme("lunaperche")
+
+-- Transparent background
+-- local groups = {
+--     "Normal", "NormalFloat", "NormalNC", "VertSplit",
+--     "NvimTreeNormal", "NvimTreeNormalNC", "NvimTreeEndOfBuffer"
+-- }
+-- for _, group in ipairs(groups) do
+--     vim.api.nvim_set_hl(0, group, { bg = "none" })
+-- end

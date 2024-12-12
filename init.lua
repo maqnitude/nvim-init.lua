@@ -13,7 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
             { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out, "WarningMsg" },
+            { out,                            "WarningMsg" },
             { "\nPress any key to exit..." },
         }, true, {})
         vim.fn.getchar()
@@ -40,11 +40,3 @@ require("lazy").setup({
     checker = { enabled = false }
 })
 
--- Transparent background
--- local groups = {
---     "Normal", "NormalFloat", "NormalNC", "VertSplit",
---     "NvimTreeNormal", "NvimTreeNormalNC", "NvimTreeEndOfBuffer"
--- }
--- for _, group in ipairs(groups) do
---     vim.api.nvim_set_hl(0, group, { bg = "none" })
--- end
