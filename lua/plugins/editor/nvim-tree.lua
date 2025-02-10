@@ -1,5 +1,5 @@
 local function on_attach(bufnr)
-    local api = require "nvim-tree.api"
+    local api = require("nvim-tree.api")
     local set_keymap = require("utils").set_keymap
 
     -- Default mappings
@@ -12,8 +12,12 @@ end
 return {
     {
         "nvim-tree/nvim-tree.lua",
-        lazy = false,
         version = "*",
+        lazy = false,
+        cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+        keys = {
+            { "<leader>fe", function() require("nvim-tree.api").tree.toggle() end }
+        },
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },

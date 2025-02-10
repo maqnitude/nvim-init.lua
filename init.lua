@@ -28,15 +28,19 @@ require("config.autocmds")
 
 -- Setup lazy.nvim
 require("lazy").setup({
+    defaults = {
+        lazy = false,
+        cond = not vim.g.vscode,
+    },
     spec = {
         { import = "plugins" },
         { import = "plugins.editor" },
         { import = "plugins.lsp" },
         -- { import = "plugins.dap" }
+        -- { import = "plugins.extra" },
     },
     ui = {
         border = "single"
     },
     checker = { enabled = false }
 })
-

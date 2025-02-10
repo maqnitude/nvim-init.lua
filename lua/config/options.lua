@@ -47,19 +47,23 @@ vim.opt.inccommand = "split"
 
 -- Tabs
 local filetype_tab_settings = {
-    ['markdown'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["markdown"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
-    ['html'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['htmldjango'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['css'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["c"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["cpp"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["cs"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
-    ['xml'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['json'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["html"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["htmldjango"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["css"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
-    ['javascript'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['javascriptreact'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['typescript'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ['typescriptreact'] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["xml"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["json"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+
+    ["javascript"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["javascriptreact"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["typescript"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["typescriptreact"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 }
 
 vim.opt.tabstop = 4

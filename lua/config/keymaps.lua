@@ -32,3 +32,18 @@ set_keymap("v", "<", "<gv", { desc = "Consecutive tab shift left" })
 
 set_keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move line(s) down" })
 set_keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move line(s) up" })
+
+if vim.g.vscode then
+    local vscode = require("vscode")
+
+    set_keymap("n", "<leader>F", function()
+        vscode.action("editor.action.formatDocument")
+    end)
+
+    set_keymap("n", "<leader>fe", function()
+        vscode.call("workbench.view.explorer")
+    end)
+    set_keymap("n", "<leader>ff", function()
+        vscode.call("workbench.action.quickOpen")
+    end)
+end
