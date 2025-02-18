@@ -47,19 +47,20 @@ vim.opt.inccommand = "split"
 
 -- Tabs
 local filetype_tab_settings = {
-    ["markdown"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-
     ["c"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["cpp"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["cs"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
-    ["html"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ["htmldjango"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ["css"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-
+    -- Config stuff
+    ["txt"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 }, -- cmake
     ["xml"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["json"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
+    -- Web stuff
+    ["markdown"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["html"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["htmldjango"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    ["css"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["javascript"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["javascriptreact"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["typescript"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
