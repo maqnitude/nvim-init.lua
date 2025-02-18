@@ -92,8 +92,25 @@ local lsp_on_attach = function(_, bufnr)
     set_keymap("n", "<leader>F", vim.lsp.buf.format, { buffer = bufnr, desc = "[F]ormat" })
 
     -- Format before writing to file
+    local ignored_buf = { "CMakeLists.txt" }
+    local function is_ignored(buf)
+        local fname = vim.api.nvim_buf_get_name(buf)
+        local tail = vim.fn.fnamemodify(fname, ":t")
+        return vim.tbl_contains(ignored_buf, tail)
+    end
+
+    local format_augroup = vim.api.nvim_create_augroup("FormatAugroup", {
+        clear = true
+    })
+
     vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        callback = function()
+        group = format_augroup,
+        pattern = { "*" },
+        callback = function(event)
+            if is_ignored(event.buf) then
+                return
+            end
+
             vim.lsp.buf.format()
         end
     })
@@ -121,6 +138,7 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "neovim/nvim-lspconfig",
+            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             require("mason").setup()

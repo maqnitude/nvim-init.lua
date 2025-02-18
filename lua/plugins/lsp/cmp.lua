@@ -10,7 +10,7 @@ return {
             "L3MON4D3/LuaSnip",
             "saadparwaiz1/cmp_luasnip",
         },
-        config = function ()
+        config = function()
             local cmp = require("cmp")
             local luasnip = require("luasnip")
             local winhighlight = {
@@ -19,7 +19,7 @@ return {
 
             cmp.setup {
                 snippet = {
-                    expand = function (args)
+                    expand = function(args)
                         luasnip.lsp_expand(args.body)
                     end,
                 },
@@ -37,7 +37,7 @@ return {
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     },
-                    ['<Tab>'] = cmp.mapping(function (fallback)
+                    ['<Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                         elseif luasnip.expand_or_locally_jumpable() then
@@ -46,7 +46,7 @@ return {
                             fallback()
                         end
                     end, { 'i', 's' }),
-                    ['<S-Tab>'] = cmp.mapping(function (fallback)
+                    ['<S-Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
                         elseif luasnip.locally_jumpable(-1) then
@@ -71,11 +71,22 @@ return {
 
     {
         "L3MON4D3/LuaSnip",
-        lazy = true
+        lazy = true,
+        dependencies = {
+            "rafamadriz/friendly-snippets"
+        },
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
     },
 
     {
         "saadparwaiz1/cmp_luasnip",
+        lazy = true
+    },
+
+    {
+        "rafamadriz/friendly-snippets",
         lazy = true
     }
 }
