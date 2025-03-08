@@ -49,7 +49,7 @@ vim.opt.inccommand = "split"
 local filetype_tab_settings = {
     ["c"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
     ["cpp"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
-    ["cs"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
+    -- ["cs"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 
     -- Config stuff
     ["txt"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 }, -- cmake

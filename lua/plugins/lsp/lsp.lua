@@ -14,7 +14,7 @@ local servers = {
     pyright = {},
 
     ts_ls = {},
-    angularls = {},
+    -- angularls = {},
     eslint = {},
     html = {},
     cssls = {},
@@ -34,12 +34,12 @@ local servers = {
                 LoadProjectOnDemand = true
             },
             RoslynExtensionsOptions = {
-                EnableAnalyzersSupport = false,
+                EnableAnalyzersSupport = true,
                 EnableImportCompletion = true,
                 AnalyzeOpenDocumentsOnly = true,
             },
             Sdk = {
-                IncludePrereleases = true,
+                IncludePrereleases = false,
             },
         },
     },

@@ -6,7 +6,17 @@ local function on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 
     -- Custom mappings
-    set_keymap("n", "<leader>fe", api.tree.toggle, { desc = "[f]ile [e]xplorer" })
+    set_keymap("n", "<leader>fe", function()
+        if api.tree.is_visible() then
+            if api.tree.is_tree_buf() then
+                api.tree.close()
+            else
+                api.tree.open()
+            end
+        else
+            api.tree.open()
+        end
+    end, { desc = "[f]ile [e]xplorer" })
 end
 
 return {

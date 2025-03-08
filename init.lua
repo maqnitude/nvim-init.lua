@@ -36,7 +36,7 @@ require("lazy").setup({
         { import = "plugins" },
         { import = "plugins.editor" },
         { import = "plugins.lsp" },
-        -- { import = "plugins.dap" }
+        { import = "plugins.dap" }
         -- { import = "plugins.extra" },
     },
     ui = {
