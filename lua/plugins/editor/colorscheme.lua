@@ -50,15 +50,29 @@ return {
         --     vim.cmd.colorscheme("kanagawa")
         -- end
 
-        "Mofiqul/vscode.nvim",
+        -- "Mofiqul/vscode.nvim",
+        -- lazy = false,
+        -- priority = 1000,
+        -- config = function()
+        --     require("vscode").setup({
+        --         transparent = true,
+        --         italic_comments = false
+        --     })
+        --     vim.cmd.colorscheme("vscode");
+        -- end
+
+        "projekt0n/github-nvim-theme",
+        name = "github-theme",
         lazy = false,
         priority = 1000,
-        config = function ()
-            require("vscode").setup({
-                transparent= true,
-                italic_comments = false
+        config = function()
+            require("github-theme").setup({
+                options = {
+                    transparent = true
+                }
             })
-            vim.cmd.colorscheme("vscode");
-        end
+
+            vim.cmd.colorscheme("github_dark_default")
+        end,
     }
 }
