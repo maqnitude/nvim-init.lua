@@ -34,7 +34,7 @@ local servers = {
                 LoadProjectOnDemand = true
             },
             RoslynExtensionsOptions = {
-                EnableAnalyzersSupport = true,
+                EnableAnalyzersSupport = false,
                 EnableImportCompletion = true,
                 AnalyzeOpenDocumentsOnly = true,
             },

@@ -10,11 +10,12 @@ return {
             { "<leader>fh", function() require("telescope.builtin").help_tags() end },
         },
         dependencies = {
-            "nvim-lua/plenary.nvim",
+            { "nvim-lua/plenary.nvim", lazy = true },
         },
         config = function()
-            local builtin = require("telescope.builtin")
+            require("telescope").setup()
 
+            local builtin = require("telescope.builtin")
             local set_keymap = require("utils").set_keymap
 
             set_keymap("n", "<leader>ff", builtin.find_files, { desc = "[f]ind [f]files" })
@@ -22,10 +23,5 @@ return {
             set_keymap("n", "<leader>fb", builtin.buffers, { desc = "[f]ind [b]uffers" })
             set_keymap("n", "<leader>fh", builtin.help_tags, { desc = "[f]ind [h]elp tags" })
         end
-    },
-
-    {
-        "nvim-lua/plenary.nvim",
-        lazy = true
     }
 }

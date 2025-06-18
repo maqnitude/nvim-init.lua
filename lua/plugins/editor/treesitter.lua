@@ -1,10 +1,12 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPre", "BufNewFile" },
+        lazy = false,
+        branch = "main",
         build = ":TSUpdate",
-        opts = {
-            ensure_installed = {
+        config = function()
+            require("nvim-treesitter").setup()
+            require("nvim-treesitter").install({
                 -- Essentials
                 "c",
                 "lua",
@@ -30,12 +32,8 @@ return {
                 "tsx", -- for React JSX/TSX
                 "angular",
                 "razor",
-            },
-            sync_install = true,
-            highlight = { enable = true },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+                "sql"
+            })
         end
     },
 

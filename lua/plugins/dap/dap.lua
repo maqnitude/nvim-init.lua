@@ -32,7 +32,7 @@ return {
                         return (path and path ~= "") and path or dap.ABORT
                     end,
                     cwd = "${workspaceFolder}",
-                    stopAtEntry = true,
+                    stopAtEntry = false,
                     setupCommands = {
                         {
                             text = "-enable-pretty-printing",

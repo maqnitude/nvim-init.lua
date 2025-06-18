@@ -1,49 +1,48 @@
 -- GENERAL --
 
-vim.opt.mouse = "a"
+vim.o.mouse = "a"
 vim.opt.clipboard = { "unnamed", "unnamedplus" }
-vim.opt.termguicolors = true
-vim.opt.timeout = false
-vim.opt.completeopt = { "menu", "menuone", "preview", "noselect" }
+vim.o.termguicolors = true
+vim.o.timeout = false
+vim.opt.completeopt = { "menuone", "noinsert", "noselect", "preview" }
 
 -- EDITOR --
+vim.o.guicursor = "a:block-nCursor"
+vim.o.cursorcolumn = false
+vim.o.cursorline = true
+vim.o.scrolloff = 10
 
-vim.opt.guicursor = "a:block-nCursor"
-vim.opt.cursorcolumn = false
-vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.signcolumn = "yes"
+vim.o.colorcolumn = "80"
 
-vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
-
-vim.opt.showmode = false
+vim.o.showmode = false
 
 -- Save undo history
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.o.updatetime = 250
 
-vim.opt.wrap = false
-vim.opt.smartindent = true
-vim.opt.breakindent = true
+vim.o.wrap = false
+vim.o.smartindent = true
+vim.o.breakindent = true
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
 
 -- Case-insensitive searching
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Preview substitutions live
-vim.opt.inccommand = "split"
+vim.o.inccommand = "split"
 
 -- Tabs
 local filetype_tab_settings = {
@@ -67,10 +66,10 @@ local filetype_tab_settings = {
     ["typescriptreact"] = { tabstop = 2, softtabstop = 2, shiftwidth = 2 },
 }
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
 for filetype, settings in pairs(filetype_tab_settings) do
     vim.cmd(string.format("autocmd FileType %s setlocal tabstop=%s softtabstop=%s shiftwidth=%s",

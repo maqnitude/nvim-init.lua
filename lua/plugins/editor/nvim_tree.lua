@@ -29,7 +29,7 @@ return {
             { "<leader>fe", function() require("nvim-tree.api").tree.toggle() end }
         },
         dependencies = {
-            "nvim-tree/nvim-web-devicons"
+            { "nvim-tree/nvim-web-devicons", lazy = true }
         },
         opts = {
             on_attach = on_attach,
@@ -40,9 +40,4 @@ return {
             }
         }
     },
-
-    {
-        "nvim-tree/nvim-web-devicons",
-        lazy = true
-    }
 }

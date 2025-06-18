@@ -25,6 +25,7 @@ vim.opt.rtp:prepend(lazypath)
 require("config.keymaps")
 require("config.options")
 require("config.autocmds")
+require("config.lsp")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -33,14 +34,13 @@ require("lazy").setup({
         cond = not vim.g.vscode,
     },
     spec = {
-        { import = "plugins" },
         { import = "plugins.editor" },
         { import = "plugins.lsp" },
-        { import = "plugins.dap" }
+        -- { import = "plugins.dap" }
         -- { import = "plugins.extra" },
     },
     ui = {
-        border = "single"
+        border = "rounded"
     },
-    checker = { enabled = false }
+    checker = { enabled = true }
 })
