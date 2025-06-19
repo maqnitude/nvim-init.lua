@@ -12,8 +12,13 @@ return {
         dependencies = {
             { "nvim-lua/plenary.nvim", lazy = true },
         },
-        config = function()
-            require("telescope").setup()
+        opts = {
+            defaults = {
+                preview = false
+            }
+        },
+        config = function(_, opts)
+            require("telescope").setup(opts)
 
             local builtin = require("telescope.builtin")
             local set_keymap = require("utils").set_keymap
