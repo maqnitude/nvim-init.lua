@@ -20,21 +20,21 @@ local editor_augroup = vim.api.nvim_create_augroup("EditorAugroup", {
     clear = false
 })
 
-if not vim.g.vscode then
-    -- Highlight trailing whitespace in red
-    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-        group = editor_augroup,
-        pattern = { "*" },
-        callback = function(event)
-            if is_ignored(event.buf) then
-                return
-            end
-
-            vim.cmd([[ match ExtraWhitespace /\s\+$/ ]])
-            vim.cmd([[ highlight ExtraWhitespace guifg=#ff0000 guibg=#ff0000 ]])
+-- if not vim.g.vscode then
+-- Highlight trailing whitespace in red
+vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+    group = editor_augroup,
+    pattern = { "*" },
+    callback = function(event)
+        if is_ignored(event.buf) then
+            return
         end
-    })
-end
+
+        vim.cmd([[ match ExtraWhitespace /\s\+$/ ]])
+        vim.cmd([[ highlight ExtraWhitespace guifg=#ff0000 guibg=#ff0000 ]])
+    end
+})
+-- end
 
 -- Remove any highlighting before leaving buffer
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
