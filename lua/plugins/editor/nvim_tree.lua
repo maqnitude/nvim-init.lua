@@ -7,15 +7,16 @@ local function on_attach(bufnr)
 
     -- Custom mappings
     set_keymap("n", "<leader>fe", function()
-        if api.tree.is_visible() then
-            if api.tree.is_tree_buf() then
-                api.tree.close()
-            else
-                api.tree.open()
-            end
-        else
-            api.tree.open()
-        end
+        -- if api.tree.is_visible() then
+        --     if api.tree.is_tree_buf() then
+        --         api.tree.close()
+        --     else
+        --         api.tree.open()
+        --     end
+        -- else
+        --     api.tree.open()
+        -- end
+        api.tree.open()
     end, { desc = "[f]ile [e]xplorer" })
 end
 
