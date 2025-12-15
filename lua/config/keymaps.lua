@@ -43,7 +43,12 @@ if vim.g.vscode then
     set_keymap("n", "<leader>fe", function()
         vscode.call("workbench.view.explorer")
     end)
+
     set_keymap("n", "<leader>ff", function()
         vscode.call("workbench.action.quickOpen")
+    end)
+
+    set_keymap("n", "<leader>tp", function()
+        vscode.call("workbench.action.togglePanel")
     end)
 end
