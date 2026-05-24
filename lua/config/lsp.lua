@@ -4,6 +4,7 @@ vim.lsp.config("*", {
 })
 
 -- Enable language servers (or tell mason-lspconfig to auto-enable)
+vim.lsp.enable("clangd")
 vim.lsp.enable("lua_ls")
 
 -- Override defaults and remaps
